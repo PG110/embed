@@ -2,6 +2,8 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CustomerRoutes from "./Routers/CustomerRoute";
+import ProductDetails from "./customer/pages/Home/ProductDetails";
+import Cart from "./customer/components/cart/Cart";
 
 function App() {
   return (

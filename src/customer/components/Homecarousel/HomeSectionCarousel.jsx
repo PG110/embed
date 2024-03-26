@@ -35,7 +35,7 @@ const HomeSectionCarousel = () => {
 
   return (
     <div className="relative px-4 sm:px-6 lg:px-8 ">
-      <div className="relative border p-5">
+      <div className="relative border bg-[#d4e2fa] rounded-xl p-5">
         <AliceCarousel
           ref={carouselRef}
           disableButtonsControls
