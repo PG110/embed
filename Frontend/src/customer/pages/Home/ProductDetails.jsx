@@ -1,11 +1,12 @@
 import React from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
+import { useNavigate, Navigate } from "react-router-dom";
 
 const product = {
   name: "Basic Tee 6-Pack",
   price: "$192",
   href: "#",
-  breadcrumbs: [{ id: 1, name: "Medicine", href: "#" }],
+  breadcrumbs: [{ id: 1, name: "Medicine", href: "/" }],
   images: [
     {
       src: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
@@ -38,6 +39,12 @@ const product = {
 const reviews = { href: "#", average: 4, totalCount: 117 };
 
 export default function ProductDetails() {
+  const navigate = useNavigate();
+
+  const handleAddtoCart = () => {
+    navigate(`/cart`);
+  };
+
   return (
     <div className="bg-white">
       <div className="pt-6">
@@ -127,6 +134,7 @@ export default function ProductDetails() {
             {/* Add to bag button */}
             <div className="mt-10">
               <button
+                onClick={handleAddtoCart}
                 type="submit"
                 className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
@@ -151,9 +159,6 @@ export default function ProductDetails() {
                 ))}
               </ul>
             </div>
-
-            
-
           </div>
         </section>
       </div>

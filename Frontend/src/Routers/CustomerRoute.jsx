@@ -22,7 +22,7 @@ const CustomerRoutes = () => {
             <Route path="/aboutus" element={<Aboutus />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/productdetails" element={<ProductDetails />} />
+            <Route path="/:productId" element={<ProductDetails />}></Route>
             Commented out routes
             {/* <Route path="/:lavelOne/:lavelTwo/:lavelThree" element={<Product />} />
             <Route path="/account/order" element={<Order />} />
