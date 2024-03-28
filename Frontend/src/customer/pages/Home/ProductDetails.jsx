@@ -1,6 +1,7 @@
 import React from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { useNavigate, Navigate } from "react-router-dom";
+import HomePageLayout from "../../components/homepagelayout/HomePageLayout";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -46,7 +47,8 @@ export default function ProductDetails() {
   };
 
   return (
-    <div className="bg-white">
+    <HomePageLayout>
+      <div className="bg-white">
       <div className="pt-6">
         <nav aria-label="Breadcrumb">
           <ol
@@ -163,5 +165,6 @@ export default function ProductDetails() {
         </section>
       </div>
     </div>
+    </HomePageLayout>
   );
 }
