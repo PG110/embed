@@ -1,13 +1,13 @@
 import React from "react";
 import "./HomeSectionCard.css";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const HomeSectionCard = ({ product }) => {
-  const { title, price, disscount, selling_price } = product;
+  const { title, brand, imageUrl,price, discountPersent, discountedPrice } = product;
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate(`/${5}`);
+    navigate(`/${product?._id}`)
   };
 
   return (
@@ -18,18 +18,19 @@ const HomeSectionCard = ({ product }) => {
       <div className="h-[10rem] w-full overflow-hidden">
         <img
           className="object-cover object-top w-full h-full"
-          src={product.image}
+          src={imageUrl}
           alt=""
         />
       </div>
 
       <div className="textPart bg-white p-3 ">
         <p className="">{title}</p>
-
+        <p className=" text-gray-400">{brand}</p>
+        
         <div className="flex space-x-2 items-center">
-          <p className="font-semibold">{selling_price}</p>
+          <p className="font-semibold">{discountedPrice}</p>
           <p className="opacity-50 line-through">{price}</p>
-          <p className="text-green-600 font-semibold">{disscount}</p>
+          <p className="text-green-600 font-semibold">{discountPersent}</p>
         </div>
       </div>
     </div>

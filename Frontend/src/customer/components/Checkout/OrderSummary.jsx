@@ -1,7 +1,7 @@
 import React from "react";
 import { Badge, Button } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
-import CartItem from "../Cart/CartItem";
+import CartItem from "../cart/CartItem";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getOrderById } from "../../../Redux/Customers/Order/Action";

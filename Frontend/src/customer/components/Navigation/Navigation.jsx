@@ -13,8 +13,8 @@ import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import AuthModal from "../Auth/AuthModal";
 import { useDispatch, useSelector } from "react-redux";
 import { deepPurple } from "@mui/material/colors";
-// import { getUser, logout } from "../../../Redux/Auth/Action";
-// import { getCart } from "../../../Redux/Customers/Cart/Action";
+import { getUser, logout } from "../../../Redux/Auth/Action";
+import { getCart } from "../../../Redux/Customers/Cart/Action";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -127,7 +127,6 @@ export default function Navigation() {
                         aria-controls={open ? "basic-menu" : undefined}
                         aria-haspopup="true"
                         aria-expanded={open ? "true" : undefined}
-                        // onClick={handleUserClick}
                         sx={{
                           bgcolor: deepPurple[500],
                           color: "white",
@@ -136,15 +135,6 @@ export default function Navigation() {
                       >
                         {auth.user?.firstName[0].toUpperCase()}
                       </Avatar>
-                      {/* <Button
-                        id="basic-button"
-                        aria-controls={open ? "basic-menu" : undefined}
-                        aria-haspopup="true"
-                        aria-expanded={open ? "true" : undefined}
-                        onClick={handleUserClick}
-                      >
-                        Dashboard
-                      </Button> */}
                       <Menu
                         id="basic-menu"
                         anchorEl={anchorEl}

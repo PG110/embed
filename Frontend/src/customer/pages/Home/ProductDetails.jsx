@@ -1,13 +1,21 @@
-import React from "react";
-import { StarIcon } from "@heroicons/react/20/solid";
-import { useNavigate, Navigate } from "react-router-dom";
-import HomePageLayout from "../../components/homepagelayout/HomePageLayout";
+import { useState } from "react";
+import { RadioGroup } from "@headlessui/react";
+import { useNavigate, useParams } from "react-router-dom";
+
+import { Box, Button, Grid, LinearProgress, Rating } from "@mui/material";
+
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { findProductById } from "../../../Redux/Customers/Product/Action";
+import { addItemToCart } from "../../../Redux/Customers/Cart/Action";
 
 const product = {
   name: "Basic Tee 6-Pack",
-  price: "$192",
+  price: "₹996",
   href: "#",
-  breadcrumbs: [{ id: 1, name: "Medicine", href: "/" }],
+  breadcrumbs: [
+    { id: 1, name: "Medicine", href: "#" }
+  ],
   images: [
     {
       src: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
@@ -26,6 +34,16 @@ const product = {
       alt: "Model wearing plain white basic tee.",
     },
   ],
+  colors: [
+    { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
+    { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
+    { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
+  ],
+  sizes: [
+    { name: "S", inStock: true },
+    { name: "M", inStock: true },
+    { name: "L", inStock: true },
+  ],
   description:
     'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
   highlights: [
@@ -37,18 +55,40 @@ const product = {
   details:
     'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
 };
-const reviews = { href: "#", average: 4, totalCount: 117 };
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 
 export default function ProductDetails() {
+  const [selectedSize, setSelectedSize] = useState();
+  const [activeImage, setActiveImage] = useState(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { customersProduct } = useSelector((store) => store);
+  const { productId } = useParams();
+  const jwt = localStorage.getItem("jwt");
+  // console.log("param",productId,customersProduct.product)
 
-  const handleAddtoCart = () => {
-    navigate(`/cart`);
+  const handleSetActiveImage = (image) => {
+    setActiveImage(image);
   };
 
+  const handleSubmit = () => {
+    const data = { productId };
+    dispatch(addItemToCart({ data, jwt }));
+    navigate("/cart");
+  };
+
+  useEffect(() => {
+    const data = { productId: productId, jwt };
+    dispatch(findProductById(data));
+  }, [productId]);
+
+  // console.log("reviews ",review)
+
   return (
-    <HomePageLayout>
-      <div className="bg-white">
+    <div className="bg-white lg:px-20">
       <div className="pt-6">
         <nav aria-label="Breadcrumb">
           <ol
@@ -59,7 +99,7 @@ export default function ProductDetails() {
               <li key={breadcrumb.id}>
                 <div className="flex items-center">
                   <a
-                    href={breadcrumb.href}
+                    href={"/"}
                     className="mr-2 text-sm font-medium text-gray-900"
                   >
                     {breadcrumb.name}
@@ -83,28 +123,32 @@ export default function ProductDetails() {
                 aria-current="page"
                 className="font-medium text-gray-500 hover:text-gray-600"
               >
-                {product.name}
+                {customersProduct.product?.title}
               </a>
             </li>
           </ol>
         </nav>
 
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-10 px-4 pt-10">
+        {/* product details */}
+        <section className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-2 px-4 pt-10">
           {/* Image gallery */}
-          <div className="flex flex-col items-center">
-            <div className="max-h-[30rem] max-w-[25rem] overflow-hidden rounded-lg lg:block">
+          <div className="flex flex-col items-center ">
+            <div className=" overflow-hidden rounded-lg max-w-[30rem] max-h-[35rem]">
               <img
-                src={product.images[0].src}
+                src={activeImage?.src || customersProduct.product?.imageUrl}
                 alt={product.images[0].alt}
                 className="h-full w-full object-cover object-center"
               />
             </div>
             <div className="flex flex-wrap space-x-5 justify-center">
-              {product.images.map((item) => (
-                <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg max-h-[5rem] max-w-[5rem] mt-4">
+              {product.images.map((image) => (
+                <div
+                  onClick={() => handleSetActiveImage(image)}
+                  className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg max-w-[5rem] max-h-[5rem] mt-4"
+                >
                   <img
-                    src={item.src}
-                    alt={item.alt}
+                    src={image.src}
+                    alt={product.images[1].alt}
                     className="h-full w-full object-cover object-center"
                   />
                 </div>
@@ -113,58 +157,89 @@ export default function ProductDetails() {
           </div>
 
           {/* Product info */}
-          <div className="lg:col-span-1 mx-auto max-w-2xl px-4 pb-16 sm:px-6 lg:max-w-7xl lg:px-8 lg:pb-24">
+          <div className="lg:col-span-1 mx-auto max-w-2xl px-4 pb-16 sm:px-6  lg:max-w-7xl  lg:px-8 lg:pb-24">
             <div className="lg:col-span-2">
-              <h1 className="text-lg lg:text-xl font-semibold tracking-tight text-gray-900 ">
-                {product.name}
+              <h1 className="text-lg lg:text-xl font-semibold tracking-tight text-gray-900  ">
+                {customersProduct.product?.brand}
+              </h1>
+              <h1 className="text-lg lg:text-xl tracking-tight text-gray-900 opacity-60 pt-1">
+                {customersProduct.product?.title}
               </h1>
             </div>
 
+            {/* Options */}
             <div className="mt-4 lg:row-span-3 lg:mt-0">
               <h2 className="sr-only">Product information</h2>
-              <p className="text-3xl tracking-tight text-gray-900">
-                {product.price}
-              </p>
+              <div className="flex space-x-5 items-center text-lg lg:text-xl tracking-tight text-gray-900 mt-6">
+                <p className="font-semibold">
+                  ₹{customersProduct.product?.discountedPrice}
+                </p>
+                <p className="opacity-50 line-through">
+                  ₹{customersProduct.product?.price}
+                </p>
+                <p className="text-green-600 font-semibold">
+                  {customersProduct.product?.discountPersent}% Off
+                </p>
+              </div>
+
+              <form className="mt-10" onSubmit={handleSubmit}>
+                {/* Sizes */}
+                <Button
+                  variant="contained"
+                  type="submit"
+                  sx={{ padding: ".8rem 2rem", marginTop: "2rem" }}
+                >
+                  Add To Cart
+                </Button>
+              </form>
             </div>
 
-            {/* Details */}
-            <div className="mt-10">
-              <h3 className="text-sm font-medium text-gray-900">Details</h3>
-              <p className="mt-4 text-sm text-gray-600">{product.details}</p>
-            </div>
+            <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
+              {/* Description and details */}
+              <div>
+                <h3 className="sr-only">Description</h3>
 
-            {/* Add to bag button */}
-            <div className="mt-10">
-              <button
-                onClick={handleAddtoCart}
-                type="submit"
-                className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              >
-                Add to Bag
-              </button>
-            </div>
+                <div className="space-y-6">
+                  <p className="text-base text-gray-900">
+                    {customersProduct.product?.description}
+                  </p>
+                </div>
+              </div>
 
-            {/* Description */}
-            <div className="mt-10">
-              <h3 className="sr-only">Description</h3>
-              <p className="text-base text-gray-900">{product.description}</p>
-            </div>
+              <div className="mt-10">
+                <h3 className="text-sm font-medium text-gray-900">
+                  Highlights
+                </h3>
 
-            {/* Highlights */}
-            <div className="mt-10">
-              <h3 className="text-sm font-medium text-gray-900">Highlights</h3>
-              <ul role="list" className="mt-4 space-y-2 pl-4 text-sm">
-                {product.highlights.map((highlight) => (
-                  <li key={highlight} className="text-gray-400">
-                    <span className="text-gray-600">{highlight}</span>
-                  </li>
-                ))}
-              </ul>
+                <div className="mt-4">
+                  <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
+                    {product.highlights.map((highlight) => (
+                      <li key={highlight} className="text-gray-400">
+                        <span className="text-gray-600">{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-10">
+                <h2 className="text-sm font-medium text-gray-900">Details</h2>
+
+                <div className="mt-4 space-y-6">
+                  <p className="text-sm text-gray-600">{product.details}</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
+
+        {/* rating and review section */}
+        <section className="">
+          <h1 className="font-semibold text-lg pb-4">
+            Recent Review & Ratings
+          </h1>
+        </section>
       </div>
     </div>
-    </HomePageLayout>
   );
 }

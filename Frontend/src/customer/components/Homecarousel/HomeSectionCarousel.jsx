@@ -4,8 +4,54 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useRef, useState } from "react";
 import HomeSectionCard from "../homesectioncard/HomeSectionCard";
 import { medicine } from "../../../data/medicine/medicine";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { findProducts } from "../../../Redux/Customers/Product/Action";
+
 
 const HomeSectionCarousel = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const jwt = localStorage.getItem("jwt");
+  const param = useParams();
+  const { customersProduct } = useSelector((store) => store);
+  const location = useLocation();
+  const [isLoaderOpen, setIsLoaderOpen] = useState(false);
+
+  const handleLoderClose = () => {
+    setIsLoaderOpen(false);
+  };
+
+  // const filter = decodeURIComponent(location.search);
+  const decodedQueryString = decodeURIComponent(location.search);
+  const searchParams = new URLSearchParams(decodedQueryString);
+  const price = searchParams.get("price");
+  const disccount = searchParams.get("disccout");
+  const stock = searchParams.get("stock");
+
+  // console.log("location - ", colorValue, sizeValue,price,disccount);
+
+  useEffect(() => {
+    const [minPrice, maxPrice] =
+      price === null ? [0, 0] : price.split("-").map(Number);
+    const data = {
+      minPrice: minPrice || 0,
+      maxPrice: maxPrice || 10000,
+      minDiscount: disccount || 0,
+      stock: stock,
+    };
+    dispatch(findProducts(data));
+  }, [price, disccount, stock]);
+
+  useEffect(() => {
+    if (customersProduct.loading) {
+      setIsLoaderOpen(true);
+    } else {
+      setIsLoaderOpen(false);
+    }
+  }, [customersProduct.loading]);
+
   const carouselRef = useRef();
   const [activeIndex,setActiveIndex] = useState(0);
 
@@ -27,10 +73,8 @@ const HomeSectionCarousel = () => {
     1024: { items: 4 },
   };
 
-  const items = medicine.slice(0, 10).map((item) => (
-    <div>
+  const items = customersProduct.products?.content?.map((item) => (
       <HomeSectionCard product={item} />
-    </div>
   ));
 
   return (
@@ -45,7 +89,7 @@ const HomeSectionCarousel = () => {
           responsive={responsive}
           onSlideChanged={syncActiveIndex}
         />
-        {activeIndex !== items.length -4 && (<Button
+        {activeIndex !== items -4 && (<Button
           onClick={slideNext}
           variant="contained"
           className="z-50 bg-white rounded-md"

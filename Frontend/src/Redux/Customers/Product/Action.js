@@ -21,23 +21,17 @@ import api, { API_BASE_URL } from "../../../config/api";
 
 export const findProducts = (reqData) => async (dispatch) => {
   const {
-    colors,
-    sizes,
     minPrice,
     maxPrice,
     minDiscount,
-    category,
     stock,
-    sort,
-    pageNumber,
-    pageSize,
   } = reqData;
 
   try {
     dispatch({ type: FIND_PRODUCTS_BY_CATEGORY_REQUEST });
 
     const { data } = await api.get(
-      `/api/products?color=${colors}&size=${sizes}&minPrice=${minPrice}&maxPrice=${maxPrice}&minDiscount=${minDiscount}&category=${category}&stock=${stock}&sort=${sort}&pageNumber=${pageNumber}&pageSize=${pageSize}`
+      `/api/products?minPrice=${minPrice}&maxPrice=${maxPrice}&minDiscount=${minDiscount}&stock=${stock}`
     );
 
     console.log("get product by category - ", data);

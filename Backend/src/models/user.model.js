@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema({
   mobile: {
     type: String,
   },
-  addresses: [
+  address: [
     {
         type: mongoose.Schema.Types.ObjectId,
         ref: "addresses",
@@ -36,18 +36,6 @@ const userSchema = new mongoose.Schema({
     {
         type: mongoose.Schema.Types.ObjectId,
         ref: "payment_information",
-    },
-  ],
-  ratings: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "ratings",
-    },
-  ], 
-  reviews: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "reviews",
     },
   ],
   createdAt: {
