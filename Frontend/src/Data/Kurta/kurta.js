@@ -1,8 +1,8 @@
-export const medicine=[
+export const kurtaPage1=[
     {
-        "image": "https://cdn01.pharmeasy.in/dam/products_otc/R67145/littles-comfy-baby-pants-diapers-with-wetness-indicator-and-12-hours-absorption-large-30-pants-2-1670588532.jpg?dim=700x0&dpr=1&q=100",
+        "image": "https://rukminim1.flixcart.com/image/612/612/xif0q/ethnic-set/b/4/m/m-na-kurta-set-010-rama-woxen-original-imagzkgg8mnyxmcg.jpeg?q=70",
         "brand": "WOXEN",
-        "title": "Little'S Comfy Baby Pants Diapers With Wetness Indicator And 12 Hours Absorption - Large 30 Pants",
+        "title": "Women Kurta and Pant Set Art Silk",
         "color": "",
         "selling_price": "₹699",
         "price": "₹2,899",
@@ -10,9 +10,9 @@ export const medicine=[
         "size": ""
     },
     {
-        "image": "https://cdn01.pharmeasy.in/dam/products_otc/J53090/baidyanath-nagpur-maharasnadi-kadha-with-guggulu-for-joints-muscles-pain-450-ml-2-1676004407.jpg?dim=1440x0",
+        "image": "https://rukminim1.flixcart.com/image/612/612/xif0q/ethnic-set/2/l/r/l-6909-blue-libas-original-imafygzxftqzszfx-bb.jpeg?q=70",
         "brand": "LIBAS",
-        "title": "Baidyanath Nagpur Maharasnadi Kadha With Guggulu - For Joints & Muscles Pain, 450 Ml",
+        "title": "Women Kurta and Palazzo Set Cotton Blend",
         "color": "",
         "selling_price": "₹1,082",
         "price": "₹2,799",
@@ -20,9 +20,9 @@ export const medicine=[
         "size": ""
     },
     {
-        "image": "https://cdn01.pharmeasy.in/dam/products_otc/Z47706/sugar-free-gold-500-pellets-with-free-sugar-free-green-40gm-powder-1-1710330150.jpg?dim=1440x0",
+        "image": "https://rukminim1.flixcart.com/image/612/612/l3t2fm80/ethnic-set/o/q/7/m-9kbd183-samah-original-imageuh5a8hgwusj.jpeg?q=70",
         "brand": "Samah",
-        "title": "Sugar Free Gold 500 Pellets With Free (Sugar Free Green 40gm Powder)",
+        "title": "Women Kurta, Pant And Dupatta Set Silk Blend, Cotton Bl...",
         "color": "",
         "selling_price": "₹702",
         "price": "₹3,997",
@@ -30,9 +30,9 @@ export const medicine=[
         "size": ""
     },
     {
-        "image": "https://cdn01.pharmeasy.in/dam/products_otc/192351/i-pill-emergency-contraceptive-pill-2-1672279640.jpg?dim=700x0&dpr=1&q=100",
+        "image": "https://rukminim1.flixcart.com/image/612/612/l2z26q80/ethnic-set/s/n/m/xxl-blue-indigoset-klosia-original-image7c4dckmy2tt.jpeg?q=70",
         "brand": "Klosia",
-        "title": "I-Pill Emergency Contraceptive Pill",
+        "title": "Women Kurta, Pant And Dupatta Set Viscose Rayon",
         "color": "",
         "selling_price": "₹664",
         "price": "₹2,999",
@@ -40,9 +40,9 @@ export const medicine=[
         "size": ""
     },
     {
-        "image": "https://cdn01.pharmeasy.in/dam/products_otc/L07650/durex-real-feel-condoms-pack-of-10-2-1685367850.jpg?dim=1440x0",
+        "image": "https://rukminim1.flixcart.com/image/612/612/l0mr7gw0/ethnic-set/e/r/w/m-palazoo-set-kenix-world-original-imagcdtgpszm7cdy.jpeg?q=70",
         "brand": "shoecom",
-        "title": "Durex Real Feel Condoms Pack Of 10",
+        "title": "Women Kurta and Palazzo Set Viscose Rayon",
         "color": "",
         "selling_price": "₹433",
         "price": "₹2,995",

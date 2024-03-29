@@ -15,16 +15,14 @@ const PaymentSuccess = () => {
   const [paymentId, setPaymentId] = useState("");
   const [referenceId, setReferenceId] = useState("");
   const [paymentStatus, setPaymentStatus] = useState("");
-  const {orderId}=useParams();
-
-  
+  const { orderId } = useParams();
 
   const jwt = localStorage.getItem("jwt");
   const dispatch = useDispatch();
   const { order } = useSelector((store) => store);
 
   useEffect(() => {
-    console.log("orderId",orderId)
+    console.log("orderId", orderId);
     const urlParams = new URLSearchParams(window.location.search);
     setPaymentId(urlParams.get("razorpay_payment_id"));
     setReferenceId(urlParams.get("razorpay_payment_link_reference_id"));
@@ -52,7 +50,7 @@ const PaymentSuccess = () => {
         </Alert>
       </div>
 
-      <OrderTraker activeStep={1}/>
+      <OrderTraker activeStep={1} />
 
       <Grid container className="space-y-5 py-5 pt-20">
         {order.order?.orderItems.map((item) => (

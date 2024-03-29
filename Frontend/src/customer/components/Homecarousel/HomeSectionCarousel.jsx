@@ -3,7 +3,7 @@ import { Button } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useRef, useState } from "react";
 import HomeSectionCard from "../homesectioncard/HomeSectionCard";
-import { medicine } from "../../../data/medicine/medicine";
+// import { medicine } from "../../../data/medicine/medicine";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -73,7 +73,7 @@ const HomeSectionCarousel = () => {
     1024: { items: 4 },
   };
 
-  const items = customersProduct.products?.content?.map((item) => (
+  const items = customersProduct.products?.content?.slice(6).map((item) => (
       <HomeSectionCard product={item} />
   ));
 
@@ -89,7 +89,7 @@ const HomeSectionCarousel = () => {
           responsive={responsive}
           onSlideChanged={syncActiveIndex}
         />
-        {activeIndex !== items -4 && (<Button
+        {activeIndex !== items-4 && (<Button
           onClick={slideNext}
           variant="contained"
           className="z-50 bg-white rounded-md"

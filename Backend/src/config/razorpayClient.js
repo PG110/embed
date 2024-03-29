@@ -1,12 +1,11 @@
-const Razorpay = require('razorpay');
+const Razorpay = require("razorpay");
 
-apiKey="rzp_test_kTsRSaDC8hwztX"
-apiSecret="LieoD1s9mxMIv569PcgRDMcU"
+apiKey = "rzp_test_A7wdOUbsCQI2aC";
+apiSecret = "CoCSX72ltWnggYUJJ5s701Cn";
 
 const razorpay = new Razorpay({
-    key_id: apiKey,
-    key_secret: apiSecret,
-  });
+  key_id: apiKey,
+  key_secret: apiSecret,
+});
 
-
-  module.exports=razorpay;
+module.exports = razorpay;

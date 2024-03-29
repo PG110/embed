@@ -1,14 +1,12 @@
-import React from 'react'
-import HomePageLayout from '../homepagelayout/HomePageLayout'
+import React from "react";
+
 
 const Healthcare = () => {
   return (
     <div>
-        <HomePageLayout>
-           <h1>welcome to the medshare</h1>
-        </HomePageLayout>
+      <h1>welcome to the medshare</h1>
     </div>
-  )
-}
+  );
+};
 
-export default Healthcare
+export default Healthcare;

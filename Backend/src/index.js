@@ -34,12 +34,6 @@ app.use("/api/orders",orderRouter);
 const paymentRouter=require("./routes/payment.routes.js");
 app.use('/api/payments',paymentRouter)
 
-const reviewRouter=require("./routes/review.routes.js");
-app.use("/api/reviews",reviewRouter);
-
-const ratingRouter=require("./routes/rating.routes.js");
-app.use("/api/ratings",ratingRouter);
-
 // admin routes handler
 const adminOrderRoutes=require("./routes/adminOrder.routes.js");
 app.use("/api/admin/orders",adminOrderRoutes);

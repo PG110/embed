@@ -11,6 +11,7 @@ import {
   import axios from 'axios';
   
   export const createPayment = (reqData) => async (dispatch) => {
+    
     console.log("create payment reqData ",reqData)
     try {
       dispatch({
@@ -23,7 +24,9 @@ import {
         },
       };
   
-      const { data } = await axios.post(`${API_BASE_URL}/api/payments/${reqData.orderId}`,reqData, config);
+     const { data } = await axios.post(`${API_BASE_URL}/api/payments/${reqData.orderId}`,reqData, config);
+    
+
   console.log("datta",data)
   if(data.payment_link_url){
     window.location.href=data.payment_link_url;

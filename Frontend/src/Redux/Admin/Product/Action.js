@@ -40,9 +40,8 @@ export const createProduct = (product) => async (dispatch) => {
   try {
     dispatch({ type: CREATE_PRODUCT_REQUEST });
 
-    const { data } = await api.post(
-      `${API_BASE_URL}/api/admin/products/`,
-      product.data
+    const { data } = await api.post(`/api/admin/products/`,
+      product
     );
 
     dispatch({
