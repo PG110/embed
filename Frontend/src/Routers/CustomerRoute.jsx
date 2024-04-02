@@ -15,6 +15,7 @@ import OrderDetails from "../customer/components/orders/OrderDetails";
 import PaymentSuccess from "../customer/components/paymentSuccess/PaymentSuccess";
 import { customerTheme } from "../Admin/them/customeThem";
 import HomePageLayout from "../customer/components/homepagelayout/HomePageLayout";
+import Createsellproduct from "../customer/components/sellproduct/createsellproduct";
 
 const CustomerRoutes = () => {
   const showNavigation = location.pathname !== "*";
@@ -29,6 +30,7 @@ const CustomerRoutes = () => {
               <Route path="/" element={<Homepage />} />
               <Route path="/Labtest" element={<Labtest />} />
               <Route path="/healthcare" element={<Healthcare />} />
+              <Route path="/sell" element={<Createsellproduct />} />
               <Route path="/aboutus" element={<Aboutus />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/cart" element={<Cart />} />

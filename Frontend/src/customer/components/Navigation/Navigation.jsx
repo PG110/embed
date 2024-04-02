@@ -25,6 +25,7 @@ const navigation = {
   pages: [
     { name: "Lab Test", href: "/Labtest" },
     { name: "HealthCare", href: "/healthcare" },
+    { name: "Sell", href: "/sell" },
   ],
 };
 
@@ -111,13 +112,6 @@ export default function Navigation() {
                   ))}
                 </div>
               </div>
-              <PopupButton
-                id="01HTDHMBB4N3V9JMC1237SC96X"
-                style={{ fontSize: 20 }}
-                className="my-button"
-              >
-                Sell
-              </PopupButton>
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   {auth.user ? (
