@@ -14,14 +14,12 @@ import { useTheme } from "@mui/material/styles";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import { customTheme } from "./them/customeThem";
+import { lightTheme} from "./them/customeThem";
 import AdminNavbar from "./Navigation/AdminNavbar";
 import Dashboard from "./Views/Admin";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import DemoAdmin from "./Views/DemoAdmin";
 import CreateProductForm from "./componets/createProduct/CreateProductFrom";
-import CreateProuductDemo from "./componets/createProduct/CreateProuductDemo";
-import CreateProduct from "../customer/components/Create/CreateProduct";
 import "./AdminPannel.css";
 import ProductsTable from "./componets/Products/ProductsTable";
 import OrdersTable from "./componets/Orders/OrdersTable";
@@ -40,8 +38,6 @@ const menu = [
   {name:"Customers",path:"/admin/customers"},
   {name:"Orders",path:"/admin/orders"},
   {name:"Total Earnings",path:"/admin"},
-  {name:"Weekly Overview",path:"/admin"},
-  {name:"Monthly Overview",path:"/admin"},
   {name:"Add Product",path:"/admin/product/create"},
 ];
 
@@ -127,7 +123,7 @@ export default function AdminPannel() {
   const drawerVariant = isLargeScreen ? "permanent" : "temporary";
 
   return (
-    <ThemeProvider theme={customTheme}>
+    <ThemeProvider theme={lightTheme}>
       <Box sx={{ display: `${isLargeScreen ? "flex" : "block"}` }}>
         <CssBaseline />
         <AdminNavbar handleSideBarViewInMobile={handleSideBarViewInMobile} />

@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
-import logo from "../../../assets/LOGO.jpg"
+import logo from "../../../assets/LOGO.jpg";
+import { PopupButton } from "@typeform/embed-react";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -59,7 +60,6 @@ export default function Navigation() {
     setOpenAuthModal(false);
   };
 
-
   useEffect(() => {
     if (auth.user) {
       handleClose();
@@ -91,18 +91,14 @@ export default function Navigation() {
         <nav aria-label="Top" className="mx-auto">
           <div className="border-b border-gray-200">
             <div className="flex h-16 items-center px-11">
-              
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-               <div>
-               <Link to="/">
-                  <img
-                    src={logo}
-                    className=" max-h-[6] max-w-[6] mr-2"
-                  />
-                </Link>
-               </div>
-               <div className="flex items-center space-x-5 ">
+                <div>
+                  <Link to="/">
+                    <img src={logo} className=" max-h-[6] max-w-[6] mr-2" />
+                  </Link>
+                </div>
+                <div className="flex items-center space-x-5 ">
                   {navigation.pages.map((page) => (
                     <div key={page.name} className="flow-root">
                       <a
@@ -115,8 +111,13 @@ export default function Navigation() {
                   ))}
                 </div>
               </div>
-              
-
+              <PopupButton
+                id="01HTDHMBB4N3V9JMC1237SC96X"
+                style={{ fontSize: 20 }}
+                className="my-button"
+              >
+                Sell
+              </PopupButton>
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   {auth.user ? (

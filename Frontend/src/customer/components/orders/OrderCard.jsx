@@ -24,7 +24,7 @@ const OrderCard = ({ item, order }) => {
             <div className="ml-5">
               <p className="mb-2">{item?.product?.title}</p>
               <p className="opacity-50 text-xs font-semibold space-x-5">
-                <span>Size: {item?.size}</span>
+                
               </p>
             </div>
           </div>
@@ -61,7 +61,7 @@ const OrderCard = ({ item, order }) => {
               className="flex items-center text-blue-600 cursor-pointer"
             >
               <StarIcon sx={{ fontSize: "2rem" }} className="px-2 text-5xl" />
-              <span>Rate & Review Product</span>
+              
             </div>
           )}
         </Grid>

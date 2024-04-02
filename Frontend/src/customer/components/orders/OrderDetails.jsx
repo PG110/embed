@@ -64,9 +64,7 @@ const OrderDetails = () => {
         </Grid>
       </Box>
 
-    
-
-      <Grid container className="space-y-5">
+    <Grid container className="space-y-5">
         {order.order?.orderItems.map((item) => (
           <Grid
             container
@@ -103,7 +101,6 @@ const OrderDetails = () => {
                     sx={{ fontSize: "2rem" }}
                     className="px-2 text-5xl"
                   />
-                  <span>Rate & Review Product</span>
                 </Box>
               }
             </Grid>

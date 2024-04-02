@@ -16,7 +16,7 @@ const orderStatus = [
 const Order = () => {
   const dispatch = useDispatch();
   const jwt = localStorage.getItem("jwt");
-  const {order}=useSelector(store=>store);
+  const {order} = useSelector(store=>store);
 
   useEffect(() => {
     dispatch(getOrderHistory({ jwt }));

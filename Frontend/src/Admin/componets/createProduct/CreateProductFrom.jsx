@@ -85,7 +85,7 @@ const jwt=localStorage.getItem("jwt")
   // }
 
   return (
-    <Fragment className="createProductContainer ">
+    <div className="createProductContainer ">
       <Typography
         variant="h3"
         sx={{ textAlign: "center" }}
@@ -185,13 +185,14 @@ const jwt=localStorage.getItem("jwt")
               className="py-20"
               size="large"
               type="submit"
+              onClick={handleSubmit}
             >
               Add New Product
             </Button>
           </Grid>
         </Grid>
       </form>
-    </Fragment>
+    </div>
   );
 };
 

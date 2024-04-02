@@ -8,6 +8,7 @@ const HomeSectionCard = ({ product }) => {
 
   const handleNavigate = () => {
     navigate(`/${product?._id}`)
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -28,9 +29,9 @@ const HomeSectionCard = ({ product }) => {
         <p className=" text-gray-400">{brand}</p>
         
         <div className="flex space-x-2 items-center">
-          <p className="font-semibold">{discountedPrice}</p>
-          <p className="opacity-50 line-through">{price}</p>
-          <p className="text-green-600 font-semibold">{discountPersent}</p>
+          <p className="font-semibold">₹{discountedPrice}</p>
+          <p className="opacity-50 line-through">₹{price}</p>
+          <p className="text-green-600 font-semibold">{discountPersent}%off</p>
         </div>
       </div>
     </div>

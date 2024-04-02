@@ -38,4 +38,7 @@ app.use('/api/payments',paymentRouter)
 const adminOrderRoutes=require("./routes/adminOrder.routes.js");
 app.use("/api/admin/orders",adminOrderRoutes);
 
+const adminOrderRoutes=require("./routes/adminOrder.routes.js");
+app.use("/api/sell",harekrishna);
+
 module.exports={app};

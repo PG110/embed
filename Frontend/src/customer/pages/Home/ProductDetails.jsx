@@ -232,13 +232,6 @@ export default function ProductDetails() {
             </div>
           </div>
         </section>
-
-        {/* rating and review section */}
-        <section className="">
-          <h1 className="font-semibold text-lg pb-4">
-            Recent Review & Ratings
-          </h1>
-        </section>
       </div>
     </div>
   );

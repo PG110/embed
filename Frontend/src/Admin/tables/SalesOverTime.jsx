@@ -83,7 +83,7 @@ const SalesOverTime = () => {
   }
 
   return (
-    <Card>
+    <Card >
       <CardHeader
         title='Sales Over Time'
         titleTypographyProps={{

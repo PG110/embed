@@ -33,7 +33,7 @@ import {
   getOrders,
   shipOrder,
 } from "../../../Redux/Admin/Orders/Action";
- import { configure } from "@testing-library/react";
+import { configure } from "@testing-library/react";
 
 const OrdersTable = () => {
   const navigate = useNavigate();
@@ -103,50 +103,6 @@ const OrdersTable = () => {
 
   return (
     <Box>
-      <Card className="p-3">
-        <CardHeader
-          title="Sort"
-          sx={{
-            pt: 0,
-            alignItems: "center",
-            "& .MuiCardHeader-action": { mt: 0.6 },
-          }}
-        />
-        <Grid container spacing={2}>
-          <Grid item xs={4}>
-            <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Status</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={formData.status}
-                label="Status"
-                onChange={handleChange}
-              >
-                <MenuItem value={"PLACED"}>PLACED</MenuItem>
-                <MenuItem value={"CONFIRMED"}>CONFIRMED</MenuItem>
-                <MenuItem value={"DELIVERED"}>DELIVERED</MenuItem>
-                <MenuItem value={"CANCELD"}>CANCLED</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-          <Grid item xs={4}>
-            <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Sort By</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={formData.sort}
-                label="Sort By"
-                onChange={handleChange}
-              >
-                <MenuItem value={"Newest"}>Newest</MenuItem>
-                <MenuItem value={"Older"}>Older</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-        </Grid>
-      </Card>
       <Card className="mt-2">
         <CardHeader
           title="All Orders"

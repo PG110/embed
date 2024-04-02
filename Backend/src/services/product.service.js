@@ -59,7 +59,7 @@ async function getAllProducts(reqQuery) {
     pageNumber,
     pageSize,
   } = reqQuery;
-  (pageSize = pageSize || 10), (pageNumber = pageNumber || 1);
+  (pageSize = pageSize || 25), (pageNumber = pageNumber || 1);
   let query = Product.find();
 
   if (minPrice && maxPrice) {

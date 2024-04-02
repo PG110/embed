@@ -26,11 +26,11 @@ const customTheme = createTheme({
   
 });
 
-const darkTheme = createTheme({
+const lightTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: 'light',
     primary: {
-      main: '#9155FD',
+      main: "#ada6e7",
     },
     secondary: {
       main: '#f48fb1',
@@ -55,7 +55,7 @@ const customerTheme = createTheme({
     },
     
     background: {
-      default: '',
+      default: '#121019',
       // paper: '#121019',
       paper:"white"
     },
@@ -64,4 +64,4 @@ const customerTheme = createTheme({
   
 });
 
-export {customTheme,darkTheme,customerTheme};
+export {customTheme,lightTheme,customerTheme};
