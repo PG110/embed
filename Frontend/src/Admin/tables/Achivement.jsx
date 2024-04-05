@@ -16,7 +16,7 @@ const Achivement = () => {
        <Card sx={{ position: 'relative' }}>
       <CardContent>
       <Typography variant='h6' sx={{ letterSpacing: '0.25px' }}>
-          Hemant sharma
+          MedShare Team
         </Typography>
         <Typography variant='body2' >Congratulations 🥳</Typography>
         

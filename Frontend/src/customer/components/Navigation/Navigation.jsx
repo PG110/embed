@@ -25,7 +25,7 @@ const navigation = {
   pages: [
     { name: "Lab Test", href: "/Labtest" },
     { name: "HealthCare", href: "/healthcare" },
-    { name: "Sell", href: "/sell" },
+    { name: "Sell", href: "https://docs.google.com/forms/d/e/1FAIpQLSdY0zj5C1HHr2xVZO0NcjdWV0mWRqnD-UCj_cIhtLoJX-DCGg/viewform?usp=sf_link" },
   ],
 };
 
