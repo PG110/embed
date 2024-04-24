@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import logo from "../../../assets/LOGO.jpg";
+import logo from "../../../assets/LOGO1.jpeg";
 import { PopupButton } from "@typeform/embed-react";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import {
@@ -8,6 +8,7 @@ import {
   ShoppingBagIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import SearchBar from "../searchbar/SearchBar";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Avatar, Button, Menu, MenuItem } from "@mui/material";
@@ -16,6 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deepPurple } from "@mui/material/colors";
 import { getUser, logout } from "../../../Redux/Auth/Action";
 import { getCart } from "../../../Redux/Customers/Cart/Action";
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -85,9 +87,7 @@ export default function Navigation() {
   return (
     <div className="bg-white pb-10">
       <header className="relative bg-white">
-        <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-10">
-          MedShare
-        </p>
+        
 
         <nav aria-label="Top" className="mx-auto">
           <div className="border-b border-gray-200">
@@ -96,22 +96,29 @@ export default function Navigation() {
               <div className="ml-4 flex lg:ml-0">
                 <div>
                   <Link to="/">
-                    <img src={logo} className=" max-h-[6] max-w-[6] mr-2" />
+                    <img src={logo}  className=" max-h-[6] max-w-[6] mr-2" />
                   </Link>
+                 
                 </div>
-                <div className="flex items-center space-x-5 ">
+                <div className="flex items-center justify-center space-x-14 display-flexjustify mx-4">
                   {navigation.pages.map((page) => (
                     <div key={page.name} className="flow-root">
                       <a
                         href={page.href}
-                        className="-m-2 block p-2 font-medium text-gray-900"
+                        className=" -m-2 block p-2 font-medium text-gray-900"
                       >
                         {page.name}
                       </a>
+                      
                     </div>
                   ))}
                 </div>
+                
               </div>
+              <div >
+                    <SearchBar/>
+                    </div>
+              
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   {auth.user ? (
@@ -179,8 +186,10 @@ export default function Navigation() {
             </div>
           </div>
         </nav>
+        
       </header>
       <AuthModal handleClose={handleClose} open={openAuthModal} />
+      
     </div>
   );
 }
