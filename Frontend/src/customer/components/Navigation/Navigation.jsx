@@ -116,7 +116,7 @@ export default function Navigation() {
                 
               </div>
               <div >
-                    <SearchBar/>
+                   
                     </div>
               
               <div className="ml-auto flex items-center">

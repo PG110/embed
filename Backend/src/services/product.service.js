@@ -85,7 +85,7 @@ async function getAllProducts(reqQuery) {
 
   // Apply pagination
   const totalProducts = await Product.countDocuments(query);
-
+                   
   const skip = (pageNumber - 1) * pageSize;
 
   query = query.skip(skip).limit(pageSize);

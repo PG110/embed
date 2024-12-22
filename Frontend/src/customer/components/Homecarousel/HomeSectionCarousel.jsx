@@ -36,6 +36,11 @@ const HomeSectionCarousel = () => {
     const [minPrice, maxPrice] =
       price === null ? [0, 0] : price.split("-").map(Number);
     const data = {
+
+  
+
+
+
       minPrice: minPrice || 0,
       maxPrice: maxPrice || 10000,
       minDiscount: disccount || 0,
@@ -73,6 +78,14 @@ const HomeSectionCarousel = () => {
     1024: { items: 4 },
   };
 
+
+
+
+   
+
+
+
+   
   const items = customersProduct.products?.content?.slice(6).map((item) => (
       <HomeSectionCard product={item} />
   ));
